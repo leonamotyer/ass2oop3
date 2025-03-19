@@ -72,5 +72,71 @@ public interface QueueADT<E> {
      * @return The size.
      */
     int size();
+    
+    /**
+     * Check if the queue is full.
+     * (Optional method for fixed-size queues.)
+     * 
+     * Precondition: A valid Queue object exists.
+     * 
+     * Postcondition: A boolean value representing if the queue has 
+     * reached its maximum capacity is returned.
+     * 
+     * @return true if the queue is full, false otherwise.
+     */
+    boolean isFull();
+    
+    /**
+     * Returns an array containing all of the items in this queue.
+     * The head of the queue corresponds to the first element of the array.
+     * 
+     * Precondition: A valid Queue object exists.
+     * 
+     * Postcondition: An Object array containing all of the items in the queue is returned.
+     * 
+     * @return an array containing all of the items in this queue.
+     */
    
+    Object[] toArray();
+    
+    /**
+     * Returns an array containing all of the items in this queue;
+     * the runtime type of the returned array is that of the specified array.
+     * The head of the queue corresponds to the first element of the array.
+     * 
+     * Precondition: A valid Queue object exists.
+     * 
+     * Postcondition: An array containing all of the items in the queue is returned.
+     * 
+     * @param copy the array into which the elements of the queue are to be stored,
+     *             if it is big enough; otherwise, a new array of the same runtime type is allocated.
+     * @return an array containing all of the items in this queue.
+     */
+    E[] toArray(E[] copy);
+    
+    /**
+     * Returns an iterator over the items in this queue.
+     * The iterator's remove() method is not supported.
+     * 
+     * Precondition: A valid Queue object exists.
+     * 
+     * Postcondition: An Iterator for the items in the queue is returned.
+     * 
+     * @return an Iterator over the items in this queue.
+     */
+    Iterator<E> iterator();
+    
+    /**
+     * Compares the specified queue with this queue for equality.
+     * Two queues are equal if they contain equal items appearing in the same order.
+     * 
+     * Precondition: A valid Queue object exists.
+     * 
+     * Postcondition: A boolean value representing whether the specified queue 
+     * is equal to this queue is returned.
+     * 
+     * @param that the queue to be compared for equality with this queue.
+     * @return true if the specified queue is equal to this queue, false otherwise.
+     */
+    boolean equals(QueueADT<E> that);
 }
