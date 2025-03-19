@@ -1,4 +1,5 @@
 import java.util.NoSuchElementException;
+ 
 
 /**
  * A queue ADT (First-In-First-Out).
@@ -139,4 +140,14 @@ public interface QueueADT<E> {
      * @return true if the specified queue is equal to this queue, false otherwise.
      */
     boolean equals(QueueADT<E> that);
+    
+    /**
+     * Removes all items from the queue.
+     * 
+     * Precondition: A valid Queue object exists.
+     * 
+     * Postcondition: The queue is empty after all items have been removed.
+     */
+    void dequeueAll();
+
 }
