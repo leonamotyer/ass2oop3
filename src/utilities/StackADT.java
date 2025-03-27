@@ -1,3 +1,4 @@
+package utilities;
 import java.util.NoSuchElementException;
 
 /**
@@ -37,4 +38,4 @@ public interface StackADT<E> {
      * @return The size.
      */
     int size();
-}
+} 

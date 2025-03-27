@@ -1,8 +1,7 @@
 package implementations;
-
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 import utilities.ListADT;
+import utilities.Iterator;
 
 public class MyArrayList<E> implements ListADT<E> {
     private static final int DEFAULT_CAPACITY = 10;
@@ -78,8 +77,8 @@ public class MyArrayList<E> implements ListADT<E> {
     }
 
   @Override
-  public linearUtilities.Iterator<E> iterator() {
-      return new linearUtilities.Iterator<E>() {
+	public utilities.Iterator<E> iterator() {
+      return new utilities.Iterator<E>() {
           private int currentIndex = 0;
 
           @Override
@@ -95,15 +94,16 @@ public class MyArrayList<E> implements ListADT<E> {
       };
   }
 
-    @Override
-    public boolean addAll(ListADT<? extends E> toAdd) throws NullPointerException {
-        if (toAdd == null) throw new NullPointerException("List cannot be null");
-        Iterator<? extends E> it = (Iterator<? extends E>) toAdd.iterator();
-        while (it.hasNext()) {
-            add(it.next());
-        }
-        return true;
-    }
+  @Override
+  public boolean addAll(ListADT<? extends E> toAdd) throws NullPointerException {
+      if (toAdd == null) throw new NullPointerException("List cannot be null");
+      // Explicitly use the custom iterator from kitty's starting code 
+      Iterator<? extends E> it = toAdd.iterator();
+      while (it.hasNext()) {
+          add(it.next());
+      }
+      return true;
+  }
 
     @Override
     public E remove(E toRemove) throws NullPointerException {
@@ -158,4 +158,6 @@ public class MyArrayList<E> implements ListADT<E> {
         }
         return array;
     }
+
+	
 }
