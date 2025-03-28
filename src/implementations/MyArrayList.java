@@ -10,7 +10,6 @@ import utilities.ListADT;
 public class MyArrayList<E> implements ListADT<E> {
     private static final int DEFAULT_CAPACITY = 10;
     private E[] elements;
-    private int position;
     private int size;
 
     public MyArrayList() {
@@ -126,6 +125,7 @@ public class MyArrayList<E> implements ListADT<E> {
     public E[] toArray(E[] toHold) throws NullPointerException {
         if (toHold == null) throw new NullPointerException("Array cannot be null");
         if (toHold.length < size) {
+        	// Added the explicit type conversion for use in the newInstance method
         	Class<?> componentType = toHold.getClass().getComponentType();
             toHold = (E[]) Array.newInstance(componentType, size);
         } else if (toHold.length > size) {
