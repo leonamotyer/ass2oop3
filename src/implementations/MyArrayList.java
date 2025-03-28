@@ -148,8 +148,14 @@ public class MyArrayList<E> implements ListADT<E> {
     
     @Override
     public linearUtilities.Iterator<E> iterator() {
+    	E[] copy = (E[]) ( new Object[size()] );
+
+		for (int i = 0; i < size; i++) {
+            copy[i] = elements[i];
+        }
         return new linearUtilities.Iterator<E>() {
             private int currentIndex = 0;
+            private E[] copyOfElements = copy;
 
             @Override
             public boolean hasNext() {
@@ -159,7 +165,7 @@ public class MyArrayList<E> implements ListADT<E> {
             @Override
             public E next() {
                 if (!hasNext()) throw new NoSuchElementException();
-                return elements[currentIndex++];
+                return copyOfElements[currentIndex++];
             }
         };
     }

@@ -7,6 +7,9 @@ public class Iterator<E> implements utilities.Iterator<E> {
 
 	private E[] copyOfElements;
 	private int curr = 0;
+	
+	
+	
 	@Override
     public boolean hasNext() {
 		return next() != null;
