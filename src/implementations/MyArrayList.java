@@ -1,7 +1,10 @@
 package implementations;
 
-import java.util.Iterator;
+import linearUtilities.Iterator;
+
+import java.lang.reflect.Array;
 import java.util.NoSuchElementException;
+
 import utilities.ListADT;
 
 public class MyArrayList<E> implements ListADT<E> {
@@ -77,25 +80,7 @@ public class MyArrayList<E> implements ListADT<E> {
         return size == 0;
     }
 
-  @Override
-  public linearUtilities.Iterator<E> iterator() {
-      return new linearUtilities.Iterator<E>() {
-          private int currentIndex = 0;
-
-          @Override
-          public boolean hasNext() {
-              return currentIndex < size;
-          }
-
-          @Override
-          public E next() {
-              if (!hasNext()) throw new NoSuchElementException();
-              return elements[currentIndex++];
-          }
-      };
-  }
-
-    @Override
+      @Override
     public boolean addAll(ListADT<? extends E> toAdd) throws NullPointerException {
         if (toAdd == null) throw new NullPointerException("List cannot be null");
         Iterator<? extends E> it = (Iterator<? extends E>) toAdd.iterator();
@@ -140,7 +125,9 @@ public class MyArrayList<E> implements ListADT<E> {
     public E[] toArray(E[] toHold) throws NullPointerException {
         if (toHold == null) throw new NullPointerException("Array cannot be null");
         if (toHold.length < size) {
-            toHold = (E[]) new Object[size];
+        	// Added the explicit type conversion for use in the newInstance method
+        	Class<?> componentType = toHold.getClass().getComponentType();
+            toHold = (E[]) Array.newInstance(componentType, size);
         } else if (toHold.length > size) {
             toHold[size] = null;
         }
@@ -158,4 +145,29 @@ public class MyArrayList<E> implements ListADT<E> {
         }
         return array;
     }
+    
+    @Override
+    public linearUtilities.Iterator<E> iterator() {
+    	E[] copy = (E[]) ( new Object[size()] );
+
+		for (int i = 0; i < size; i++) {
+            copy[i] = elements[i];
+        }
+        return new linearUtilities.Iterator<E>() {
+            private int currentIndex = 0;
+            private E[] copyOfElements = copy;
+
+            @Override
+            public boolean hasNext() {
+                return currentIndex < size;
+            }
+
+            @Override
+            public E next() {
+                if (!hasNext()) throw new NoSuchElementException();
+                return copyOfElements[currentIndex++];
+            }
+        };
+    }
+
 }

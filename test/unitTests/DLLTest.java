@@ -205,7 +205,6 @@ public class DLLTest
 		assertTrue(myList.add( 0, three ));
 		assertTrue(myList.add( 0, two ));
 		assertTrue(myList.add( 0, one ));
-		
 		int actualSize = myList.size();
 		assertEquals( "Failed to update size", expectedSize, actualSize);
 		
@@ -213,6 +212,7 @@ public class DLLTest
 		{
 			int expectedValue = i + 1;
 			int actualValue = myList.get( i );
+			
 			assertEquals( "Failed to add item to the correct position.", expectedValue, actualValue );
 		}
 	}

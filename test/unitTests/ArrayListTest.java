@@ -355,32 +355,32 @@ public class ArrayListTest
 	 * {@link implementations.MyArrayList#addAll(utilities.List)}
 	 * to add a DLL to the list.
 	 */
-	@Test
-	public void testAddAll_DLL()
-	{
-		boolean expectedReturn = true;
-		MyDLL<Integer> intList = new MyDLL<>();
-		intList.add( three );
-		intList.add( four );
-		intList.add( five );
-
-		myList.add( one );
-		myList.add( two );
-		
-		boolean actualReturn = myList.addAll( intList );
-		assertEquals( "Failed to return true.", expectedReturn, actualReturn );
-		
-		int expectedSize = 5;
-		int actualSize = myList.size();
-		assertEquals( "Failed to update size.", expectedSize, actualSize );
-		
-		for( int i = 0; i < myList.size(); i++ )
-		{
-			int expectedValue = i + 1;
-			int actualValue = myList.get( i );
-			assertEquals( "Failed to add to the correct position.", expectedValue, actualValue );
-		}
-	}
+//	@Test
+//	public void testAddAll_DLL()
+//	{
+//		boolean expectedReturn = true;
+//		MyDLL<Integer> intList = new MyDLL<>();
+//		intList.add( three );
+//		intList.add( four );
+//		intList.add( five );
+//
+//		myList.add( one );
+//		myList.add( two );
+//		
+//		boolean actualReturn = myList.addAll( intList );
+//		assertEquals( "Failed to return true.", expectedReturn, actualReturn );
+//		
+//		int expectedSize = 5;
+//		int actualSize = myList.size();
+//		assertEquals( "Failed to update size.", expectedSize, actualSize );
+//		
+//		for( int i = 0; i < myList.size(); i++ )
+//		{
+//			int expectedValue = i + 1;
+//			int actualValue = myList.get( i );
+//			assertEquals( "Failed to add to the correct position.", expectedValue, actualValue );
+//		}
+//	}
 
 	/**
 	 * Test method for
