@@ -22,35 +22,35 @@ public class MyQueue<E> implements QueueADT<E> {
 		if ( toAdd == null ) {
 			throw new NullPointerException();
 		}
-		dll.add(toAdd);
+		this.dll.add(toAdd);
 	}
 
 	@Override
 	public E dequeue() throws EmptyQueueException {
-		if ( dll.size() == 0 ) {
+		if ( this.dll.size() == 0 ) {
 			throw new EmptyQueueException();
 		}
 		
-		return dll.remove(0);
+		return this.dll.remove(0);
 	}
 
 	@Override
 	public E peek() throws EmptyQueueException {
-		if (dll.size() == 0 ) {
+		if ( this.dll.size() == 0 ) {
 			throw new EmptyQueueException();
 		}
 		
-		return dll.get(0);
+		return this.dll.get(0);
 	}
 
 	@Override
 	public void dequeueAll() {
-		dll.clear();
+		this.dll.clear();
 	}
 
 	@Override
 	public boolean isEmpty() {
-		if ( dll.size() == 0 ) {
+		if ( this.dll.size() == 0 ) {
 			return true;
 		}
 		return false;
@@ -62,19 +62,19 @@ public class MyQueue<E> implements QueueADT<E> {
 			throw new NullPointerException();
 		}
 		
-		return dll.contains(toFind);
+		return this.dll.contains(toFind);
 	}
 
 	@Override
 	public int search(E toFind) {
-		if ( dll.isEmpty() ) {
+		if ( this.dll.isEmpty() ) {
 			return -1;
 		}
 		
-		if ( dll.getHead().getElement().equals(toFind) ) {
+		if ( this.dll.getHead().getElement().equals(toFind) ) {
 			return 1;
 		}
-		Iterator<E> it = dll.iterator();
+		Iterator<E> it = this.dll.iterator();
 		int position = 1;
 		while ( it.hasNext() ) {
 			if ( toFind.equals(it.next())) {
@@ -88,13 +88,13 @@ public class MyQueue<E> implements QueueADT<E> {
 
 	@Override
 	public Iterator<E> iterator() {
-		return dll.iterator();
+		return this.dll.iterator();
 	}
 
 	@Override
 	public boolean equals(QueueADT<E> that) {
 		try {
-			if ( !peek().equals(that.peek())) {
+			if ( !this.peek().equals(that.peek())) {
 				return false;
 			}
 		}
@@ -102,7 +102,7 @@ public class MyQueue<E> implements QueueADT<E> {
 			return false;
 		}
 		
-		Iterator<E> queue1 = dll.iterator();
+		Iterator<E> queue1 = this.dll.iterator();
 		Iterator<E> queue2 = that.iterator();
 		
 		while ( queue1.hasNext() ) {
@@ -116,13 +116,13 @@ public class MyQueue<E> implements QueueADT<E> {
 	@Override
 	public Object[] toArray() {
 		
-		return dll.toArray();
+		return this.dll.toArray();
 	}
 
 	@Override
 	public E[] toArray(E[] holder) throws NullPointerException {
 
-		return dll.toArray(holder);
+		return this.dll.toArray(holder);
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class MyQueue<E> implements QueueADT<E> {
 
 	@Override
 	public int size() {
-		return dll.size();
+		return this.dll.size();
 	}
 	
 }

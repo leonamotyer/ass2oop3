@@ -126,6 +126,7 @@ public class MyArrayList<E> implements ListADT<E> {
         if (toHold == null) throw new NullPointerException("Array cannot be null");
         if (toHold.length < size) {
         	// Added the explicit type conversion for use in the newInstance method
+        	
         	Class<?> componentType = toHold.getClass().getComponentType();
             toHold = (E[]) Array.newInstance(componentType, size);
         } else if (toHold.length > size) {
