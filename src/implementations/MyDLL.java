@@ -9,6 +9,10 @@ import utilities.ListADT;
 
 public class MyDLL<E> implements ListADT<E> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private MyDLLNode<E> head;
 	private MyDLLNode<E> tail;
 	private MyDLLNode<E> current;
@@ -310,7 +314,9 @@ public class MyDLL<E> implements ListADT<E> {
 				return true;
 			}
 			current = current.getNext();
-			
+		}
+		if ( toFind.equals(tail.getElement()) ) {
+			return true;
 		}
 		return false;
 			
