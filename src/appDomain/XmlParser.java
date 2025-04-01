@@ -11,17 +11,17 @@ public class XmlParser {
 	}
 	
 	public List<String> parseXML(List<String> lines) {
-		for (String line : lines ) {
-			
-			for (int i = 0; i <= line.length(); i++) {
-				String current = line.substring(i, i + 1);
-				if ( current.equals("/")) {
+		// for (String line : lines ) {
+		//	
+		//	for (int i = 0; i <= line.length(); i++) {
+		//		String current = line.substring(i, i + 1);
+		//		if ( current.equals("/")) {
 					// stack.push(current) 
-				}
-				else if ( current.equals("<") ) {
+		//		}
+		//		else if ( current.equals("<") ) {
 					//stack.push(current)
-				}
-				else if ( current.equals(">") ) {
+		//		}
+		//		else if ( current.equals(">") ) {
 					// if ( stack.peek().equals("<") ) {
 					// 	 stack.pop();
 					// } 
@@ -46,11 +46,11 @@ public class XmlParser {
 					// 	 }
 					// }
 					// 
-				}
-				else {}
+		//		}
+		//		else {}
 				
-			}
-		}
+		//	}
+		// }
 		// if ( !stack.isEmpty() ) {
 		// 	 for (E element : stack) {
 		// 	 	errorQueue.enqueue(stack.pop());
