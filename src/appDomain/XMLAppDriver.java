@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 
-public class Driver 
+public class XMLAppDriver 
 {
 	/**
 	 *  
@@ -25,13 +25,13 @@ public class Driver
 			System.exit(0);
 		}
 		
-		parseXML(filePath);
+		List<String> lines = parseXML(filePath);
 		
-
-		int count = 1;
-		if (count != 0) {
-						
-			
+		
+		if (lines != null) {
+			for ( String line : lines ) {
+				System.out.println(line.trim());
+			}
 		}
 		else {
 			System.err.println("File found but had no shapes");
@@ -44,21 +44,13 @@ public class Driver
 	/**
 
 	 */
-	public static String parseXML(String filePath) {
-		String temp = "";
+	public static List<String> parseXML(String filePath) {
+		List<String> temp = null;
 		
 		try {
 			List<String> lines = Files.readAllLines(Paths.get(filePath));
+			temp = lines;
 			
-			if (!lines.isEmpty()) {
-	        	
-				for (String line : lines ) {
-					if (line != null && !line.trim().isEmpty()) {
-	        		String[] parts = line.split(" ");
-		        
-					}
-				}
-			}
 		}
 		catch(IOException e){
 			System.err.println("The file titled \'" + filePath + "\' was not found");
