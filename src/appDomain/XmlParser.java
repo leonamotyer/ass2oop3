@@ -2,15 +2,21 @@ package appDomain;
 
 import java.util.List;
 
-public class XmlParser {
+import implementations.MyQueue;
+import implementations.MyStack;
+
+public class XmlParser<E> {
 	
+	private MyStack<E> stack;
+	private MyQueue<E> errorQ;
+	private MyQueue<E> extrasQ;
 	
 	public XmlParser() {
 		
 	
 	}
 	
-	public List<String> parseXML(List<String> lines) {
+	//public List<String> parseXML(List<String> lines) {
 		// for (String line : lines ) {
 		//	
 		//	for (int i = 0; i <= line.length(); i++) {
@@ -73,6 +79,6 @@ public class XmlParser {
 		//   }
 		// repeat until both are empty 
 		
-	}
+	//}
 
 }
