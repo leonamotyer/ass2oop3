@@ -9,10 +9,7 @@ import utilities.ListADT;
 
 public class MyDLL<E> implements ListADT<E> {
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+	
 	private MyDLLNode<E> head;
 	private MyDLLNode<E> tail;
 	private MyDLLNode<E> current;

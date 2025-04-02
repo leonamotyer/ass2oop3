@@ -49,7 +49,7 @@ public class MyStack<E> implements StackADT<E> {
 	public Object[] toArray() {
 		Object[] arr = new Object[size()];
         for (int i = 0; i < size(); i++) {
-            arr[i] = list.get(size() - 1 - i); // reverse order
+            arr[i] = list.get(size() - 1 - i); 
         }
         return arr;
 	}
