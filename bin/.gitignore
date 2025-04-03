@@ -1,3 +1,6 @@
+/appDomain/
+/exceptions/
 /implementations/
+/linearUtilities/
 /unitTests/
 /utilities/
