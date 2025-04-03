@@ -25,12 +25,37 @@ Prerequisites
 JDK 8 or higher
 Java IDE (Eclipse, IntelliJ IDEA, etc.)
 Setup
-Clone the repository
+Clone the repository as shown above
 Open the project in your preferred IDE
 Ensure all dependencies are correctly configured
+XML Parser Usage
+The project includes an XML parser that validates XML structure using the custom data structures implemented in this assignment.
+
+Running the XML Parser
+Compile the project in your IDE or using command line tools
+Run the XMLAppDriver class with the path to an XML file as a command-line argument:
+java appDomain.XMLAppDriver path/to/your/xmlfile.xml
+How the XML Parser Works
+The XML parser:
+
+Reads the XML file line by line using the custom MyArrayList implementation
+Extracts XML tags and processes them in sequence
+Uses MyStack to track opening tags and validate proper nesting
+Utilizes MyQueue to process the tags in the order they appear
+Validates proper XML structure and reports any errors
+Error Reporting
+The parser will detect and report common XML errors including:
+If errors are found, they will be displayed with line numbers and descriptions to help you locate and fix issues in your XML file.
+
+Unclosed tags
+Mismatched opening and closing tags
+Improperly nested tags
+Malformed XML syntax
+
+
+
 Testing
 The project includes a comprehensive test suite using JUnit. Each data structure has its own dedicated test class that verifies:
-
 Core functionality
 Edge cases
 Exception handling
