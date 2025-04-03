@@ -4,6 +4,8 @@ package appDomain;
  import java.nio.file.Files;
  import java.nio.file.Paths;
  import java.util.List;
+
+import implementations.MyArrayList;
  
  
  public class XMLAppDriver  
@@ -25,13 +27,12 @@ package appDomain;
  			System.exit(0);
  		}
  		
- 		List<String> lines = parseXML(filePath);
- 		
+ 		MyArrayList<String> lines = getLines(filePath);
+ 		XmlParser xmlParser = new XmlParser();
 
- 		if (lines != null) {
- 			for ( String line : lines ) {
- 				System.out.println(line.trim());
- 			}}
+ 		if ( lines.size() != 0 ) {
+ 			xmlParser.parseXML(lines);
+ 		}
  		else {
  			System.err.println("File found but had no shapes");
  			System.exit(0);
@@ -43,20 +44,22 @@ package appDomain;
  	/**
  
  	 */
- 	public static List<String> parseXML(String filePath) {
- 		List<String> temp = null;
+	public static MyArrayList<String> getLines(String filePath) {
+		MyArrayList<String> toReturn = new MyArrayList<String>();
  
  		try {
  			List<String> lines = Files.readAllLines(Paths.get(filePath));
- 			temp = lines;
- 			
+ 			for ( String line : lines ) {
+ 				toReturn.add(line.trim());
+ 			}
+ 						
  			
  		}
  		catch(IOException e){
  			System.err.println("The file titled \'" + filePath + "\' was not found");
  			System.exit(0);
  		}
- 		return temp;
+ 		return toReturn;
  	}
  
  }
